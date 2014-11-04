@@ -56,7 +56,7 @@ protected:
     void requestSceneClear();
 
 public:
-    Context* context;
+    Context& context;
 };
 
 }  // namespace ed

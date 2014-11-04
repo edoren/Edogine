@@ -29,27 +29,26 @@
 
 namespace ed {
 
-GameScene::GameScene(Context& context) {
-    this->context = &context;
+GameScene::GameScene(Context& context) : context(context) {
 };
 
 GameScene::~GameScene() {
 };
 
 void GameScene::requestScenePush(GameScene::ID id) {
-    context->scenes->pushScene(id);
+    context.scenes->pushScene(id);
 }
 
 void GameScene::requestScenePop() {
-    context->scenes->popScene();
+    context.scenes->popScene();
 }
 
 void GameScene::requestSceneChange(GameScene::ID id) {
-    context->scenes->changeScene(id);
+    context.scenes->changeScene(id);
 }
 
 void GameScene::requestSceneClear() {
-    context->scenes->clearScenes();
+    context.scenes->clearScenes();
 }
 
 }  // namespace ed

@@ -21,7 +21,7 @@ project(EDOGINE)
 
 # Predefined configuration options
 set_option(EDOGINE_SHARED_LIB TRUE BOOL "Build shared libraries")
-# set_option(EDOGINE_BUILD_EXAMPLES FALSE BOOL "Build example projects")
+set_option(EDOGINE_BUILD_EXAMPLES FALSE BOOL "Build example projects")
 # set_option(EDOGINE_BUILD_DOC FALSE BOOL "Create HTML documentation (requires Doxygen)")
 
 # Include the config module
@@ -52,3 +52,7 @@ if(NOT EDOGINE_SHARED_LIB)
 endif()
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
+
+if(EDOGINE_BUILD_EXAMPLES)
+    add_subdirectory(${PROJECT_SOURCE_DIR}/examples)
+endif()

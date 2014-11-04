@@ -64,7 +64,7 @@ private:
     SDL_Rect m_texture_rect;
     SDL_Rect m_dest_rect;
 
-    SDL_Point m_origin;
+    ed::Vector2i m_origin;
     ed::Vector2f m_position;
     SDL_RendererFlip m_flip;
     ed::Vector2f m_scale;

@@ -33,7 +33,7 @@ Sprite::Sprite()
       : m_texture(nullptr),
         m_texture_rect({ 0, 0, 0, 0 }),
         m_dest_rect({ 0, 0, 0, 0 }),
-        m_origin({ 0, 0 }),
+        m_origin(0, 0),
         m_position(0, 0),
         m_flip(SDL_FLIP_NONE),
         m_rotation(0.0) {
@@ -41,7 +41,7 @@ Sprite::Sprite()
 
 Sprite::Sprite(SDL_Texture* texture)
       : m_texture(texture),
-        m_origin({ 0, 0 }),
+        m_origin(0, 0),
         m_position(0, 0),
         m_flip(SDL_FLIP_NONE),
         m_rotation(0.0) {
@@ -139,9 +139,9 @@ void Sprite::setFlip(bool x, bool y) {
 }
 
 void Sprite::draw(SDL_Renderer* renderer) {
-    SDL_RenderCopyEx(renderer, m_texture,
-                     &m_texture_rect, &m_dest_rect,
-                     m_rotation, &m_origin, m_flip);
+    SDL_RenderCopyEx(renderer, m_texture, &m_texture_rect,
+                     &m_dest_rect, m_rotation,
+                     reinterpret_cast<SDL_Point*>(&m_origin), m_flip);
 }
 
 }  // namespace ed

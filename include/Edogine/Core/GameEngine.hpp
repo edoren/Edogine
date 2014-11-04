@@ -35,13 +35,13 @@
 #include <Edogine/Core/SceneManager.hpp>
 #include <Edogine/Core/ResourceManager.hpp>
 
-namespace ed {
-
 enum InitFlags : uint8_t {
     EDOGINE_INIT_GRAPHICS = 0x1,
     EDOGINE_INIT_AUDIO = 0x2,
     EDOGINE_INIT_EVERYTHING = 0xFF
 };
+
+namespace ed {
 
 inline InitFlags operator|(InitFlags a, InitFlags b) {
     return static_cast<InitFlags>(static_cast<uint8_t>(a) | static_cast<uint8_t>(b));
